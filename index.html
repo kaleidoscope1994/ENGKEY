@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<title>ENGKEY内置钥匙</title>
+	<script type="text/javascript" src="./jq/jquery-2.0.0.js"></script>
+	<script type="text/javascript" src="https://kaleidoscope1994.github.io/step-ek/jq/jquery-2.0.1.min.js"></script>
+	<script type='application/javascript' src='./jq/fastclick.js'></script>
+	<script type="text/javascript">
+	$(function() {
+    FastClick.attach(document.body);
+	});
+		function finds(){
+			if($("input").val()!=""){
+			var teststr = $("input").val();
+			for(i=0;i<textArray.length;i+=2){
+				if(teststr==textArray[i]){
+					$("input").val("");
+					$("#db3").html("密码："+textArray[i+1]);
+				}
+			}
+			if($("input").val()!=""){
+				$("input").val("");
+				$("#db3").html("口令有误！");
+			}
+		}else{
+				$("#db3").html("请先输入口令");
+			}
+		}
+		if(document.referrer=="https://kaleidoscope1994.github.io/step-ek/"){
+		if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i))) {  
+    		var ISM = true; 
+		}else{  
+    		var ISM = false;
+		}  
+		if(ISM==true){
+			var textArray=new Array();
+
+			//var dbtest=db.replace("$","|");
+			textArray = db.split(/[\$\|]/);
+			//alert(textArray);
+		}
+	}
+	$(document).ready(function(){
+		if(document.referrer=="https://kaleidoscope1994.github.io/step-ek/"){
+		if(ISM==true){
+			//当为手机时显示
+		$(".getme").css({"width":$(window).width(),"height":$(window).height()})
+		$(".contents").css({"width":$(".getme").width(),"height":300})
+		$(".imgs").css({"marginLeft":"5px","marginTop":"5px"});
+		$("#tips").html("< 返回ENGTEA首页");
+	}else{
+		//当为电脑时显示
+		$("body").empty();
+	}
+}else{
+	$(".getme").css({"width":$(window).width(),"height":$(window).height()})
+	$(".imgs").css({"marginLeft":"5px","marginTop":"5px"});
+	$(".contents").empty();
+}
+　　});
+	</script>
+</head>
+<body  style="padding:0;margin:0;background-color:#202020;">
+<div class="getme" style="background-color:#000000;color:#555555;">
+<div class="titles" style="height: 60px;">
+<div style="float: left;">
+<a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=MzIzMjg0MDM5NA==#wechat_redirect" target="_blank">
+<img class="imgs" src="./img/logo.jpg" style="margin-left:10px;"></a>
+</div>
+<div id="tips" style="float: left;margin-left:10px;margin-top: 24px;font-size:12px;color:#aaaaaa;">
+< 进入公众号回复“资源钥匙”即可使用!
+</div>
+</div>
+<div class="contents" style="padding:0;margin:0;background-color:#101010;text-align:center;color:#dddddd;">
+<div  class="dbtxt1" style="font-size:40px;height:100px;">
+</div>
+<div id="db1" class="dbtxt1" style="font-size:40px;">
+<input type="text" name="keys" style="width:200px;height:48px;font-size: 28px;" placeholder="key-????">
+</div>
+<div id="db2"  class="dbtxt2" style="margin-top:30px;font-size:16px;">
+<div id="db3" style="border-radius:3px;border-style: solid; border-width: 1px;border-color:#1a8f1a;margin:auto;margin-left:24px;margin-right:24px;height:48px;background-color:#19ad17;line-height:48px;color:#FFFFFF;text-align:center;font-family: &quot;Helvetica Neue&quot;, Helvetica, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, Arial, sans-serif; font-size: medium; white-space: normal;font-size:22px;" onclick="finds();">
+获取密码
+</div>
+</div>
+</div>
+</body>
+</html>
